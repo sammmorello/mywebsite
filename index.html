@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Samantha Morello</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600&family=DM+Serif+Display:ital@0;1&family=Quicksand:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="header">
+    <div class="header-name">samantha morello</div>
+    <nav class="header-nav">
+      <a href="mailto:samanthaamorello@gmail.com">email</a>
+      <span class="nav-dot">·</span>
+      <a href="https://www.linkedin.com/in/samantha-morello-009947210/">linkedin</a>
+      <span class="nav-dot">·</span>
+      <a href="https://github.com/sammmorello">github</a>
+    </nav>
+  </header>
+
+  <main class="main">
+    <section class="hero">
+      <!-- Photo in macOS window frame -->
+      <div class="photo-window">
+        <div class="window-bar">
+          <span class="window-dot red"></span>
+          <span class="window-dot yellow"></span>
+          <span class="window-dot green"></span>
+          <span class="window-title">me.jpg</span>
+        </div>
+        <div class="window-content">
+          <img src="assets/me.jpg" alt="Sam">
+        </div>
+      </div>
+
+
+      <!-- Folders floating around (clickable) -->
+      <div class="folder folder-blue" data-folder="about-me">
+        <div class="folder-tab"></div>
+        <div class="folder-body"></div>
+        <span class="folder-label">about me</span>
+      </div>
+
+      <div class="folder folder-yellow" data-folder="education">
+        <div class="folder-tab"></div>
+        <div class="folder-body"></div>
+        <span class="folder-label">education</span>
+      </div>
+
+      <div class="folder folder-green" data-folder="data-dump">
+        <div class="folder-tab"></div>
+        <div class="folder-body"></div>
+        <span class="folder-label">data dump</span>
+      </div>
+
+      <div class="folder folder-pink" data-folder="fun-stuff">
+        <div class="folder-tab"></div>
+        <div class="folder-body"></div>
+        <span class="folder-label">fun stuff</span>
+      </div>
+
+    <!-- Folder Windows (hidden by default) -->
+    <div class="folder-window" id="window-about-me">
+      <div class="folder-window-inner">
+        <div class="window-bar">
+          <span class="window-dot red close-btn"></span>
+          <span class="window-dot yellow"></span>
+          <span class="window-dot green"></span>
+          <span class="window-title">about me</span>
+        </div>
+        <div class="window-body">
+          <p class="window-placeholder">coming soon...</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="folder-window" id="window-education">
+      <div class="folder-window-inner">
+        <div class="window-bar">
+          <span class="window-dot red close-btn"></span>
+          <span class="window-dot yellow"></span>
+          <span class="window-dot green"></span>
+          <span class="window-title">education</span>
+        </div>
+        <div class="window-body">
+          <div class="file-grid">
+            <div class="file-item" data-nested="asu">
+              <div class="file-icon">
+                <div class="mini-folder-tab yellow"></div>
+                <div class="mini-folder-body yellow"></div>
+              </div>
+              <span class="file-name">arizona state</span>
+            </div>
+            <div class="file-item" data-nested="mcc">
+              <div class="file-icon">
+                <div class="mini-folder-tab yellow"></div>
+                <div class="mini-folder-body yellow"></div>
+              </div>
+              <span class="file-name">mesa community</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="folder-window" id="window-asu">
+      <div class="folder-window-inner">
+        <div class="window-bar">
+          <span class="window-dot red close-btn"></span>
+          <span class="window-dot yellow"></span>
+          <span class="window-dot green"></span>
+          <span class="window-title">arizona state university</span>
+        </div>
+        <div class="window-body project-detail">
+          <p class="project-semester">Tempe, Arizona</p>
+          <h2 class="project-title">Arizona State University</h2>
+          <h3 class="project-subtitle">Bachelor of Science in Data Science - Mathematics</h3>
+          <p class="project-description">Jan 2023 - May 2025</p>
+
+          <div class="project-section">
+            <div class="tech-tags">
+              <span class="tech-tag highlight">GPA: 3.8</span>
+              <span class="tech-tag highlight">Summa Cum Laude</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="folder-window" id="window-mcc">
+      <div class="folder-window-inner">
+        <div class="window-bar">
+          <span class="window-dot red close-btn"></span>
+          <span class="window-dot yellow"></span>
+          <span class="window-dot green"></span>
+          <span class="window-title">mesa community college</span>
+        </div>
+        <div class="window-body project-detail">
+          <p class="project-semester">Mesa, Arizona</p>
+          <h2 class="project-title">Mesa Community College</h2>
+          <h3 class="project-subtitle">Associates of Science</h3>
+          <p class="project-description">Aug 2020 - Dec 2022</p>
+
+          <div class="project-section">
+            <h4>Relevant Coursework:</h4>
+            <ul class="project-list">
+              <li>Advanced Mathematics - Calculus I, II, III</li>
+              <li>Introduction to Programming (Python, Java)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="folder-window" id="window-data-dump">
+      <div class="folder-window-inner">
+        <div class="window-bar">
+          <span class="window-dot red close-btn"></span>
+          <span class="window-dot yellow"></span>
+          <span class="window-dot green"></span>
+          <span class="window-title">data dump</span>
+        </div>
+        <div class="window-body">
+          <div class="file-grid">
+            <div class="file-item" data-nested="capstone">
+              <div class="file-icon">
+                <div class="mini-folder-tab green"></div>
+                <div class="mini-folder-body green"></div>
+              </div>
+              <span class="file-name">capstone</span>
+            </div>
+            <div class="file-item" data-nested="nba-classification">
+              <div class="file-icon">
+                <div class="mini-folder-tab green"></div>
+                <div class="mini-folder-body green"></div>
+              </div>
+              <span class="file-name">nba classification</span>
+            </div>
+            <div class="file-item" data-nested="cubs-regression">
+              <div class="file-icon">
+                <div class="mini-folder-tab green"></div>
+                <div class="mini-folder-body green"></div>
+              </div>
+              <span class="file-name">cubs regression</span>
+            </div>
+            <div class="file-item" data-nested="cycle-tracking">
+              <div class="file-icon">
+                <div class="mini-folder-tab green"></div>
+                <div class="mini-folder-body green"></div>
+              </div>
+              <span class="file-name">cycle tracking</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="folder-window" id="window-capstone">
+      <div class="folder-window-inner">
+        <div class="window-bar">
+          <span class="window-dot red close-btn"></span>
+          <span class="window-dot yellow"></span>
+          <span class="window-dot green"></span>
+          <span class="window-title">capstone</span>
+        </div>
+        <div class="window-body project-detail">
+          <p class="project-semester">Fall 2024</p>
+          <h2 class="project-title">Data Science Capstone</h2>
+          <h3 class="project-subtitle">Optimizing Coffee Shop Sales with Predictive Modeling</h3>
+          <p class="project-description">Comprehensive analysis of coffee shop sales data using machine learning techniques to forecast revenue and optimize business operations.</p>
+
+          <div class="project-section">
+            <h4>Project Highlights:</h4>
+            <ul class="project-list">
+              <li>Sales Forecasting using advanced regression models</li>
+              <li>Decision Tree and Random Forest implementation</li>
+              <li>Feature Engineering for improved model performance</li>
+              <li>Interactive Tool Development for business insights</li>
+              <li>Data Visualization with compelling business reports</li>
+              <li>Strategic Business Insights and recommendations</li>
+            </ul>
+          </div>
+
+          <div class="project-section">
+            <h4>Technologies Used:</h4>
+            <div class="tech-tags">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">Machine Learning</span>
+              <span class="tech-tag">Data Visualization</span>
+              <span class="tech-tag">Business Analytics</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="folder-window" id="window-nba-classification">
+      <div class="folder-window-inner">
+        <div class="window-bar">
+          <span class="window-dot red close-btn"></span>
+          <span class="window-dot yellow"></span>
+          <span class="window-dot green"></span>
+          <span class="window-title">nba classification</span>
+        </div>
+        <div class="window-body project-detail">
+          <p class="project-semester">Spring 2024</p>
+          <h2 class="project-title">Machine Learning in Data Science</h2>
+          <h3 class="project-subtitle">NBA Player Classification with Machine Learning</h3>
+          <p class="project-description">Advanced classification system using multiple machine learning algorithms to predict NBA player performance categories and positions.</p>
+
+          <div class="project-section">
+            <h4>Project Highlights:</h4>
+            <ul class="project-list">
+              <li>Sports Analytics with comprehensive player data</li>
+              <li>Naive Bayes classification implementation</li>
+              <li>Decision Tree and Random Forest models</li>
+              <li>SMOTE Balancing for improved accuracy</li>
+              <li>Feature Selection and model optimization</li>
+              <li>Model Evaluation with detailed performance metrics</li>
+            </ul>
+          </div>
+
+          <div class="project-section">
+            <h4>Technologies Used:</h4>
+            <div class="tech-tags">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">Scikit-learn</span>
+              <span class="tech-tag">Sports Analytics</span>
+              <span class="tech-tag">Classification</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="folder-window" id="window-cubs-regression">
+      <div class="folder-window-inner">
+        <div class="window-bar">
+          <span class="window-dot red close-btn"></span>
+          <span class="window-dot yellow"></span>
+          <span class="window-dot green"></span>
+          <span class="window-title">cubs regression</span>
+        </div>
+        <div class="window-body project-detail">
+          <p class="project-semester">Spring 2024</p>
+          <h2 class="project-title">Applied Regression</h2>
+          <h3 class="project-subtitle">Team Wins for Chicago Cubs with Multiple Regression</h3>
+          <p class="project-description">Statistical analysis of Chicago Cubs performance using multiple regression techniques to identify key factors influencing team success.</p>
+
+          <div class="project-section">
+            <h4>Project Highlights:</h4>
+            <ul class="project-list">
+              <li>Regression Modeling with comprehensive team statistics</li>
+              <li>Statistical Testing and hypothesis validation</li>
+              <li>Exploratory Data Analysis of historical data</li>
+              <li>Model Evaluation with rigorous statistical methods</li>
+            </ul>
+          </div>
+
+          <div class="project-section">
+            <h4>Technologies Used:</h4>
+            <div class="tech-tags">
+              <span class="tech-tag">SAS</span>
+              <span class="tech-tag">Statistical Modeling</span>
+              <span class="tech-tag">Sports Analytics</span>
+              <span class="tech-tag">Regression Analysis</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="folder-window" id="window-cycle-tracking">
+      <div class="folder-window-inner">
+        <div class="window-bar">
+          <span class="window-dot red close-btn"></span>
+          <span class="window-dot yellow"></span>
+          <span class="window-dot green"></span>
+          <span class="window-title">cycle tracking</span>
+        </div>
+        <div class="window-body project-detail">
+          <p class="project-semester">Personal Project</p>
+          <h2 class="project-title">Cycle Tracking & Temperature Analysis</h2>
+          <h3 class="project-subtitle">Using Personal Health Data</h3>
+          <p class="project-description">Innovative personal health analytics project analyzing menstrual cycle patterns and temperature variations for health insights.</p>
+
+          <div class="project-section">
+            <h4>Project Highlights:</h4>
+            <ul class="project-list">
+              <li>Personal Health Analytics with sensitive data handling</li>
+              <li>PostgreSQL database design and management</li>
+              <li>SQLAlchemy for robust data operations</li>
+              <li>Exploratory Data Analysis of biological patterns</li>
+              <li>Time Series Trends analysis</li>
+              <li>Personal Health Analytics dashboard</li>
+            </ul>
+          </div>
+
+          <div class="project-section">
+            <h4>Technologies Used:</h4>
+            <div class="tech-tags">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">SQL</span>
+              <span class="tech-tag">PostgreSQL</span>
+              <span class="tech-tag">Health Analytics</span>
+              <span class="tech-tag">Time Series</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="folder-window" id="window-fun-stuff">
+      <div class="folder-window-inner">
+        <div class="window-bar">
+          <span class="window-dot red close-btn"></span>
+          <span class="window-dot yellow"></span>
+          <span class="window-dot green"></span>
+          <span class="window-title">fun stuff</span>
+        </div>
+        <div class="window-body">
+          <div class="file-grid">
+            <a href="https://sammmorello.github.io/vintage-photobooth/" class="file-item" target="_blank">
+              <div class="file-icon">
+                <div class="mini-folder-tab pink"></div>
+                <div class="mini-folder-body pink"></div>
+              </div>
+              <span class="file-name">vintage photobooth</span>
+            </a>
+            <a href="https://sammmorello.github.io/happybdaynicholas/" class="file-item" target="_blank">
+              <div class="file-icon">
+                <div class="mini-folder-tab pink"></div>
+                <div class="mini-folder-body pink"></div>
+              </div>
+              <span class="file-name">happy birthday nicholas</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div></div>
+    <div class="footer-tagline">open to work</div>
+  </footer>
+  <script>
+    // Folder click functionality
+    document.querySelectorAll('.folder').forEach(folder => {
+      folder.addEventListener('click', () => {
+        const folderName = folder.dataset.folder;
+        const window = document.getElementById('window-' + folderName);
+        window.classList.add('active');
+      });
+    });
+
+    // Nested folder click functionality
+    document.querySelectorAll('.file-item[data-nested]').forEach(item => {
+      item.addEventListener('click', () => {
+        const nestedName = item.dataset.nested;
+        const window = document.getElementById('window-' + nestedName);
+        if (window) {
+          window.classList.add('active');
+        }
+      });
+    });
+
+    // Close window functionality
+    document.querySelectorAll('.close-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        btn.closest('.folder-window').classList.remove('active');
+      });
+    });
+
+    // Close on clicking outside
+    document.querySelectorAll('.folder-window').forEach(win => {
+      win.addEventListener('click', (e) => {
+        if (e.target === win) {
+          win.classList.remove('active');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
