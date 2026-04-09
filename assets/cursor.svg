@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <!-- Classic arrow cursor - inline tail -->
+
+  <!-- Black outline -->
+  <polygon points="0,0 0,24 6,18 10,26 14,24 10,16 18,16" fill="#333"/>
+
+  <!-- Silver fill -->
+  <polygon points="2,3 2,20 6,16 10,23 12,22 8,15 15,15" fill="#d8d8d8"/>
+
+  <!-- Highlight -->
+  <polygon points="2,3 2,12 8,12" fill="#f0f0f0"/>
+</svg>
