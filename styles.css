@@ -9,20 +9,12 @@
 }
 
 :root {
-  --bg-cream: #f7f3ee;
-  --text-dark: #2c2825;
-  --text-muted: #7a7067;
-  --text-light: #a39a8e;
-
-  /* macOS folder colors */
-  --folder-blue: #6bb9f0;
-  --folder-blue-dark: #5aa8df;
-  --folder-yellow: #f4d03f;
-  --folder-yellow-dark: #e3bf2e;
-  --folder-green: #a8d8a0;
-  --folder-green-dark: #97c78f;
-  --folder-pink: #f5b7c5;
-  --folder-pink-dark: #e4a6b4;
+  /* Color palette */
+  --bg-cream: #f6f3ee;
+  --text-brown: #3d2f2b;
+  --text-muted: #5a4a45;
+  --folder-brown: #8B7355;
+  --folder-brown-dark: #6B5344;
 
   /* Window chrome */
   --dot-red: #ff5f57;
@@ -32,63 +24,49 @@
 
 html {
   scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-  font-family: 'DM Serif Display', Georgia, serif;
+  font-family: 'Cormorant Garamond', Georgia, serif;
   background-color: var(--bg-cream);
-  color: var(--text-dark);
+  color: var(--text-brown);
   line-height: 1.6;
-  height: 100vh;
-  overflow: hidden;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  -webkit-overflow-scrolling: touch;
 }
+
+/* =====================================================
+   Page Border
+   ===================================================== */
+
+.page-border {
+  min-height: 100vh;
+  position: relative;
+}
+
 
 /* =====================================================
    Header
    ===================================================== */
 
 .header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  padding: 2rem 3rem;
-  z-index: 100;
-  background: linear-gradient(to bottom, var(--bg-cream) 60%, transparent);
+  padding: 0.8rem 3rem;
+  background-color: #3d251e;
 }
 
-.header-name {
-  font-family: 'Space Mono', monospace;
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  color: var(--text-dark);
-}
-
-.header-nav {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.header-nav a {
-  font-family: 'Space Mono', monospace;
-  font-size: 0.75rem;
-  color: var(--text-muted);
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
-
-.header-nav a:hover {
-  color: var(--text-dark);
-}
-
-.nav-dot {
-  color: var(--text-light);
-  font-size: 0.75rem;
+.header-welcome {
+  font-family: 'Cinzel', serif;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  color: var(--bg-cream);
 }
 
 /* =====================================================
@@ -96,40 +74,127 @@ body {
    ===================================================== */
 
 .main {
-  padding-top: 0;
+  padding: 0;
 }
 
 .hero {
-  max-width: 1200px;
-  margin: 0 auto;
-  height: 100vh;
+  min-height: calc(100vh - 120px);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  position: relative;
   padding: 3rem;
 }
 
-/* =====================================================
-   Photo Window (macOS style)
-   ===================================================== */
-
-.photo-window {
-  background: #ffffff;
-  border-radius: 10px;
-  box-shadow:
-    0 20px 60px rgba(0, 0, 0, 0.15),
-    0 8px 25px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  transform: rotate(-2deg);
-  transition: transform 0.3s ease;
-  max-width: 420px;
-  z-index: 5;
+.hero-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4rem;
+  max-width: 1100px;
+  width: 100%;
 }
 
-.photo-window:hover {
-  transform: rotate(0deg) scale(1.02);
+/* =====================================================
+   Folders Grid
+   ===================================================== */
+
+.folders-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.folder {
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.folder:hover {
+  transform: translateY(-5px) scale(1.05);
+}
+
+.folder-icon {
+  width: 80px;
+  height: auto;
+}
+
+.folder-label {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-brown);
+  margin-top: 8px;
+  text-align: center;
+}
+
+/* =====================================================
+   Laptop Container
+   ===================================================== */
+
+.laptop-container {
+  position: relative;
+  width: 500px;
+  flex-shrink: 0;
+  transform: rotate(3deg) translateY(-4rem);
+  margin-left: 12rem;
+}
+
+.laptop-frame {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.laptop-screen {
+  position: absolute;
+  top: 6.5%;
+  left: 13.5%;
+  width: 73%;
+  height: 55%;
+  overflow: hidden;
+  border-radius: 3px;
+}
+
+.laptop-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+}
+
+/* =====================================================
+   Folder Windows (Popup)
+   ===================================================== */
+
+.folder-window {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(4px);
+}
+
+.folder-window.active {
+  display: flex;
+}
+
+.folder-window-inner {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  max-width: 90vw;
+  max-height: 90vh;
 }
 
 .window-bar {
@@ -160,165 +225,33 @@ body {
   padding-right: 36px;
 }
 
-.window-content {
-  background: #f5f5f5;
-}
-
-.window-content img {
-  display: block;
-  width: 100%;
-  height: auto;
-  max-height: 520px;
-  object-fit: cover;
-}
-
-/* =====================================================
-   Folders (macOS style - Around photo)
-   ===================================================== */
-
-.folder {
-  position: absolute;
-  cursor: pointer;
-  transition: transform 0.2s ease;
-  z-index: 8;
-}
-
-/* Position folders around the centered photo */
-.folder-blue {
-  top: 18%;
-  left: 18%;
-}
-
-.folder-yellow {
-  top: 15%;
-  right: 18%;
-}
-
-.folder-green {
-  bottom: 30%;
-  left: 15%;
-}
-
-.folder-pink {
-  bottom: 27%;
-  right: 15%;
-}
-
-.folder:hover {
-  transform: translateY(-8px) scale(1.1);
-  z-index: 20;
-}
-
-.folder-tab {
-  width: 32px;
-  height: 14px;
-  border-radius: 4px 4px 0 0;
-  position: absolute;
-  top: 0;
-  left: 12px;
-}
-
-.folder-body {
-  width: 80px;
-  height: 64px;
-  border-radius: 2px 8px 8px 8px;
-  margin-top: 8px;
-  box-shadow:
-    0 4px 12px rgba(0, 0, 0, 0.08),
-    inset 0 -2px 0 rgba(0, 0, 0, 0.05);
-}
-
-.folder-label {
-  display: block;
-  text-align: center;
-  font-family: 'Space Mono', monospace;
-  font-size: 0.7rem;
-  color: var(--text-muted);
-  margin-top: 10px;
-}
-
-/* Folder colors */
-.folder-blue .folder-tab { background: var(--folder-blue-dark); }
-.folder-blue .folder-body {
-  background: linear-gradient(180deg, var(--folder-blue) 0%, var(--folder-blue-dark) 100%);
-}
-
-.folder-yellow .folder-tab { background: var(--folder-yellow-dark); }
-.folder-yellow .folder-body {
-  background: linear-gradient(180deg, var(--folder-yellow) 0%, var(--folder-yellow-dark) 100%);
-}
-
-.folder-green .folder-tab { background: var(--folder-green-dark); }
-.folder-green .folder-body {
-  background: linear-gradient(180deg, var(--folder-green) 0%, var(--folder-green-dark) 100%);
-}
-
-.folder-pink .folder-tab { background: var(--folder-pink-dark); }
-.folder-pink .folder-body {
-  background: linear-gradient(180deg, var(--folder-pink) 0%, var(--folder-pink-dark) 100%);
-}
-
-/* =====================================================
-   Folder Windows (Popup)
-   ===================================================== */
-
-.folder-window {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.4);
-  z-index: 1000;
-  justify-content: center;
-  align-items: center;
-  backdrop-filter: blur(4px);
-}
-
-.folder-window.active {
-  display: flex;
-}
-
-.folder-window-inner {
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-  overflow: hidden;
-}
-
-.folder-window .window-bar {
-  background: #e8e8e8;
-  padding: 12px 14px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  border-bottom: 1px solid #ddd;
-}
-
-.folder-window .window-body {
+.window-body {
   background: #fff;
   min-width: 400px;
   min-height: 300px;
   padding: 2rem;
 }
 
-.folder-window .close-btn {
+.close-btn {
   cursor: pointer;
   transition: transform 0.1s ease;
 }
 
-.folder-window .close-btn:hover {
+.close-btn:hover {
   transform: scale(1.2);
 }
 
 .window-placeholder {
   font-family: 'Space Mono', monospace;
   font-size: 0.9rem;
-  color: var(--text-light);
+  color: var(--text-muted);
   text-align: center;
   padding: 4rem 2rem;
 }
+
+/* =====================================================
+   File Grid (inside windows)
+   ===================================================== */
 
 .file-grid {
   display: flex;
@@ -349,7 +282,7 @@ body {
 .mini-folder-tab {
   width: 20px;
   height: 8px;
-  background: var(--folder-blue-dark);
+  background: var(--folder-brown-dark);
   border-radius: 3px 3px 0 0;
   position: absolute;
   top: 0;
@@ -359,58 +292,27 @@ body {
 .mini-folder-body {
   width: 50px;
   height: 38px;
-  background: linear-gradient(180deg, var(--folder-blue) 0%, var(--folder-blue-dark) 100%);
+  background: linear-gradient(180deg, var(--folder-brown) 0%, var(--folder-brown-dark) 100%);
   border-radius: 2px 5px 5px 5px;
   position: absolute;
   top: 5px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 .file-name {
   font-family: 'Space Mono', monospace;
   font-size: 0.65rem;
-  color: var(--text-dark);
+  color: var(--text-brown);
   text-align: center;
   margin-top: 8px;
   word-wrap: break-word;
   line-height: 1.3;
 }
 
-/* Green mini folder */
-.mini-folder-tab.green {
-  background: var(--folder-green-dark);
-}
+/* =====================================================
+   Project Detail Styles
+   ===================================================== */
 
-.mini-folder-body.green {
-  background: linear-gradient(180deg, var(--folder-green) 0%, var(--folder-green-dark) 100%);
-}
-
-/* Yellow mini folder */
-.mini-folder-tab.yellow {
-  background: var(--folder-yellow-dark);
-}
-
-.mini-folder-body.yellow {
-  background: linear-gradient(180deg, var(--folder-yellow) 0%, var(--folder-yellow-dark) 100%);
-}
-
-/* Pink mini folder */
-.mini-folder-tab.pink {
-  background: var(--folder-pink-dark);
-}
-
-.mini-folder-body.pink {
-  background: linear-gradient(180deg, var(--folder-pink) 0%, var(--folder-pink-dark) 100%);
-}
-
-/* Highlight tech tag */
-.tech-tag.highlight {
-  background: var(--folder-yellow);
-  color: var(--text-dark);
-  font-weight: 600;
-}
-
-/* Project detail styles */
 .project-detail {
   max-width: 500px;
 }
@@ -418,14 +320,14 @@ body {
 .project-semester {
   font-family: 'Space Mono', monospace;
   font-size: 0.7rem;
-  color: var(--text-light);
+  color: var(--text-muted);
   margin-bottom: 5px;
 }
 
 .project-title {
-  font-family: 'DM Serif Display', Georgia, serif;
+  font-family: 'Cormorant Garamond', Georgia, serif;
   font-size: 1.5rem;
-  color: var(--text-dark);
+  color: var(--text-brown);
   margin-bottom: 8px;
 }
 
@@ -452,7 +354,7 @@ body {
 .project-section h4 {
   font-family: 'Space Mono', monospace;
   font-size: 0.8rem;
-  color: var(--text-dark);
+  color: var(--text-brown);
   margin-bottom: 10px;
 }
 
@@ -474,7 +376,7 @@ body {
   content: '•';
   position: absolute;
   left: 0;
-  color: var(--folder-green);
+  color: var(--folder-brown);
 }
 
 .tech-tags {
@@ -492,99 +394,466 @@ body {
   border-radius: 4px;
 }
 
-/* =====================================================
-   Footer
-   ===================================================== */
-
-.footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  padding: 1.5rem 3rem;
-}
-
-.footer-tagline {
-  font-family: 'Space Mono', monospace;
-  font-size: 0.7rem;
-  color: var(--text-muted);
+.tech-tag.highlight {
+  background: var(--folder-brown);
+  color: #fff;
+  font-weight: 600;
 }
 
 /* =====================================================
    Responsive
    ===================================================== */
 
+@media (max-width: 900px) {
+  .hero-content {
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  .laptop-container {
+    width: 100%;
+    max-width: 450px;
+    transform: rotate(2deg);
+    margin-left: 0;
+    margin-top: 0;
+  }
+
+  .folders-grid {
+    order: 2;
+  }
+}
+
 @media (max-width: 768px) {
+  .page-border {
+    margin: 10px;
+  }
+
   .header {
-    padding: 1.5rem 1.5rem;
+    padding: 1.5rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .header-name {
+    order: 1;
+    width: 100%;
+    text-align: center;
+    font-size: 1.4rem;
+  }
+
+  .header-contact {
+    order: 3;
+    width: 100%;
+    text-align: center;
+    padding: 0.6rem 1.5rem;
   }
 
   .hero {
-    padding: 4rem 1.5rem;
+    padding: 2rem 1.5rem;
   }
 
-  .photo-window {
-    max-width: 360px;
+  .folder-icon {
+    width: 65px;
   }
 
-  .window-content img {
-    max-height: 440px;
-  }
-
-  .folder-window .window-body {
+  .window-body {
     min-width: 320px;
     min-height: 250px;
-  }
-
-  .folder-body {
-    width: 65px;
-    height: 52px;
-  }
-
-  .folder-tab {
-    width: 26px;
-    height: 12px;
-    left: 10px;
-  }
-
-  .folder-label {
-    font-size: 0.65rem;
-  }
-
-  .footer {
     padding: 1.5rem;
-    flex-direction: column;
-    gap: 1rem;
   }
 }
 
 @media (max-width: 480px) {
-  .header-name {
-    font-size: 0.65rem;
+  .folders-grid {
+    gap: 1.5rem;
   }
 
-  .header-nav a {
-    font-size: 0.65rem;
+  .folder-icon {
+    width: 55px;
   }
 
-  .photo-window {
-    max-width: 280px;
-  }
-
-  .window-content img {
-    max-height: 320px;
-  }
-
-  .folder {
-    display: none;
-  }
-
-  .folder-window .window-body {
+  .window-body {
     min-width: 280px;
     min-height: 200px;
-    padding: 1.5rem;
+    padding: 1rem;
   }
+
+}
+
+/* =====================================================
+   File Organizer — Scroll-Driven Stacking Folders
+   ===================================================== */
+
+.file-organizer {
+  position: relative;
+  width: 100%;
+  height: 500vh;
+  padding-bottom: 100vh;
+}
+
+.file-folder {
+  position: sticky;
+  top: 24px;
+  width: calc(100% - 60px);
+  margin: 0 auto;
+  height: calc(100vh - 24px);
+  overflow: visible;
+}
+
+/* The folder tab */
+.ff-tab {
+  position: absolute;
+  top: 0;
+  height: 44px;
+  padding: 0 18px;
+  display: inline-flex;
+  align-items: center;
+  border-radius: 8px 8px 0 0;
+  z-index: 100;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  background: var(--folder-color);
+}
+
+.ff-tab.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* First tab always visible */
+.ff-tab[data-folder="education"] {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger tabs horizontally */
+#ff-education .ff-tab { left: 30px; }
+#ff-data .ff-tab { left: 138px; }
+#ff-fun .ff-tab { left: 276px; }
+#ff-connect .ff-tab { left: 380px; }
+
+/* Tab label colors - all light for dark backgrounds */
+#ff-education .ff-tab-label,
+#ff-data .ff-tab-label,
+#ff-fun .ff-tab-label,
+#ff-connect .ff-tab-label { color: #d4c4a8; }
+
+.ff-tab-label {
+  font-family: 'Cinzel', serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  font-weight: 700;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* Folder body */
+.ff-body {
+  position: absolute;
+  top: 44px;
+  left: 0;
+  right: 0;
+  height: calc(100vh - 68px);
+  overflow-y: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+}
+
+.ff-inner {
+  padding: 3rem 4rem 4rem;
+  width: 100%;
+  max-width: 1050px;
+}
+
+/* Z-index stacking - later folders slide over previous ones */
+#ff-education { z-index: 1; }
+#ff-data { z-index: 2; }
+#ff-fun { z-index: 3; }
+#ff-connect { z-index: 4; }
+
+/* Folder colors - gradient from dark to light */
+#ff-education {
+  --folder-color: #3d251e;
+  --folder-color-light: #4c3228;
+}
+
+#ff-data {
+  --folder-color: #4c3228;
+  --folder-color-light: #5b3e31;
+}
+
+#ff-fun {
+  --folder-color: #5b3e31;
+  --folder-color-light: #6a4a3a;
+}
+
+#ff-connect {
+  --folder-color: #6a4a3a;
+  --folder-color-light: #7a5a4a;
+}
+
+.file-folder .ff-body {
+  background: var(--folder-color);
+}
+
+/* Text colors for all dark folders */
+.file-folder .sf-heading,
+.file-folder .sf-card-title { color: #f0e6d6; }
+
+.file-folder .sf-eyebrow,
+.file-folder .sf-subheading,
+.file-folder .sf-card-eyebrow,
+.file-folder .sf-card-desc,
+.file-folder .sf-list li { color: #b8a890; }
+
+.file-folder .sf-card {
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(255,255,255,0.08);
+}
+
+.file-folder .sf-project-card {
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(255,255,255,0.08);
+}
+
+.file-folder .sf-link { color: #d4c4a8; }
+
+/* Connect folder specific text */
+#ff-connect .sf-connect-heading { color: #f0e6d6; }
+#ff-connect .sf-connect-label { color: rgba(240, 230, 214, 0.5); }
+#ff-connect .sf-connect-value { color: #f0e6d6; }
+#ff-connect .sf-built-by { color: rgba(240, 230, 214, 0.4); }
+
+/* Content styles */
+.sf-two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: start;
+}
+
+.sf-four-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.sf-eyebrow {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-bottom: 0.6rem;
+  text-transform: uppercase;
+}
+
+.sf-heading {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 2rem;
+  font-weight: 500;
+  color: var(--text-brown);
+  margin-bottom: 0.4rem;
+  line-height: 1.1;
+}
+
+.sf-subheading {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  font-weight: 400;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.sf-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 0.75rem;
+}
+
+.sf-list li {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  padding: 4px 0 4px 14px;
+  position: relative;
+  line-height: 1.5;
+}
+
+.sf-list li::before {
+  content: '·';
+  position: absolute;
+  left: 0;
+  color: #d4c4a8;
+}
+
+.sf-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 1rem;
+}
+
+.sf-tag {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.56rem;
+  padding: 5px 12px;
+  border-radius: 4px;
+  background: rgba(255,255,255,0.1);
+  color: #c4b8a0;
+  letter-spacing: 0.05em;
+}
+
+.sf-tag-highlight {
+  background: rgba(212, 196, 168, 0.9);
+  color: #3d2f2b;
+  font-weight: 600;
+}
+
+.sf-card {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 8px;
+  padding: 1.75rem;
+}
+
+.sf-card-eyebrow {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-bottom: 0.4rem;
+  text-transform: uppercase;
+}
+
+.sf-card-title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: var(--text-brown);
+  margin-bottom: 0.4rem;
+}
+
+.sf-card-desc {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.62rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin-bottom: 0.75rem;
+}
+
+.sf-project-card {
+  display: flex;
+  flex-direction: column;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 8px;
+  padding: 2rem;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.sf-project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+  background: rgba(255,255,255,0.1);
+}
+
+.sf-link {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.62rem;
+  color: var(--folder-brown);
+  letter-spacing: 0.08em;
+  margin-top: auto;
+  padding-top: 1.25rem;
+}
+
+/* Connect folder */
+.ff-connect-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 60vh;
+  gap: 2rem;
+}
+
+.sf-connect-heading {
+  font-family: 'Great Vibes', cursive;
+  font-size: 8rem;
+  color: #f0e6d6;
+  font-weight: 400;
+  line-height: 1;
+  margin-bottom: 3rem;
+}
+
+.sf-connect-links {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.sf-connect-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.sf-connect-link:hover {
+  opacity: 0.7;
+}
+
+.sf-connect-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 1rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(240, 230, 214, 0.5);
+}
+
+.sf-connect-value {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 2.2rem;
+  color: #f0e6d6;
+}
+
+.sf-connect-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.sf-connect-link:hover { opacity: 0.7; }
+
+.sf-connect-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(246,243,238,0.45);
+}
+
+.sf-connect-value {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.25rem;
+  color: #f0e6d6;
+}
+
+.sf-built-by {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.52rem;
+  color: rgba(246,243,238,0.25);
+  letter-spacing: 0.1em;
+  margin-top: 2rem;
 }
