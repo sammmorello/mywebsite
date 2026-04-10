@@ -55,23 +55,35 @@ a, button, .folder, .file-item, .close-btn, .sf-project-card, .sf-connect-link {
 
 
 /* =====================================================
-   Header
+   Navigation
    ===================================================== */
 
-.header {
+.nav {
+  position: absolute;
+  top: 2rem;
+  left: 0;
+  right: 0;
   display: flex;
   justify-content: center;
-  align-items: center;
-  padding: 0.8rem 3rem;
-  background-color: #3d251e;
+  gap: 3rem;
+  z-index: 10;
 }
 
-.header-welcome {
+.nav-link {
   font-family: 'Cinzel', serif;
-  font-size: 1rem;
+  font-size: 0.85rem;
   font-weight: 500;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
   color: var(--bg-cream);
+  text-decoration: none;
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--bg-cream);
+  transition: opacity 0.2s ease;
+}
+
+.nav-link:hover {
+  opacity: 0.7;
 }
 
 /* =====================================================
@@ -88,28 +100,124 @@ a, button, .folder, .file-item, .close-btn, .sf-project-card, .sf-connect-link {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 3rem;
+  padding: 3rem 6rem;
   overflow: hidden;
+  background-color: #3d251e;
+  position: relative;
 }
 
 .hero-content {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: center;
+  gap: 1.5rem;
+  max-width: 1000px;
+}
+
+.hero-photo {
+  max-height: 85vh;
+  width: auto;
+  object-fit: contain;
+}
+
+.hero-text {
+  display: flex;
+  flex-direction: column;
+  margin-left: -3rem;
+  position: relative;
+}
+
+.hero-text-top {
+  font-family: 'Cinzel', serif;
+  font-size: 6rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  color: var(--bg-cream);
+  margin-left: 7rem;
+  margin-bottom: -3rem;
+  z-index: 1;
+}
+
+.hero-text-cursive {
+  font-family: 'Pinyon Script', cursive;
+  font-size: 11rem;
+  color: var(--bg-cream);
+  line-height: 1;
+  margin-left: -4rem;
+}
+
+/* =====================================================
+   About Section
+   ===================================================== */
+
+.about-section {
+  min-height: 100vh;
+  padding: 4rem 4rem;
+  background-color: var(--bg-cream);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.about-title {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  align-self: flex-start;
+  margin-bottom: 4rem;
+  margin-top: 2rem;
+}
+
+.about-title-top {
+  font-family: 'Cinzel', serif;
+  font-size: 6rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  color: var(--text-brown);
+}
+
+.about-title-cursive {
+  font-family: 'Pinyon Script', cursive;
+  font-size: 8.5rem;
+  color: var(--text-brown);
+  line-height: 1;
+  position: relative;
+  top: -0.5rem;
+}
+
+.about-columns {
+  display: flex;
+  gap: 4rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+  justify-content: center;
   width: 100%;
 }
 
-/* Laptop Hero */
-.laptop-hero {
-  flex-shrink: 0;
-  margin-right: -15%;
+.about-col {
+  flex: 1;
 }
 
-.laptop-img {
-  width: 1400px;
-  height: auto;
-  transform: rotate(3deg);
-  filter: drop-shadow(0 30px 80px rgba(0,0,0,0.25));
+.about-col p {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.2rem;
+  color: var(--text-brown);
+  line-height: 1.8;
+}
+
+/* =====================================================
+   Brown Section
+   ===================================================== */
+
+.brown-section {
+  background-color: #3d251e;
+  padding: 6rem 4rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 /* =====================================================
@@ -421,55 +529,68 @@ a, button, .folder, .file-item, .close-btn, .sf-project-card, .sf-connect-link {
    Responsive
    ===================================================== */
 
-@media (max-width: 1200px) {
-  .laptop-img {
-    width: 1100px;
-  }
-}
-
 @media (max-width: 900px) {
-  .laptop-img {
-    width: 900px;
+  .hero-content {
+    flex-direction: column;
+    gap: 2rem;
   }
 
-  .laptop-hero {
-    margin-right: -30%;
+  .hero-photo {
+    max-height: 55vh;
+  }
+
+  .hero-text {
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .hero-text-top {
+    font-size: 2rem;
+  }
+
+  .hero-text-cursive {
+    font-size: 6rem;
+  }
+
+  .about-columns {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .about-section {
+    padding: 4rem 2rem;
+  }
+
+  .about-title-top {
+    font-size: 3rem;
+  }
+
+  .about-title-cursive {
+    font-size: 4rem;
   }
 }
 
 @media (max-width: 600px) {
-  .laptop-img {
-    width: 700px;
+  .hero-photo {
+    max-height: 45vh;
   }
 
-  .laptop-hero {
-    margin-right: -40%;
+  .hero-text-img {
+    max-height: 35vh;
+  }
+
+  .nav {
+    gap: 2rem;
+  }
+
+  .nav-link {
+    font-size: 0.75rem;
   }
 }
 
 @media (max-width: 768px) {
   .page-border {
     margin: 10px;
-  }
-
-  .header {
-    padding: 1.5rem;
-    flex-wrap: wrap;
-    gap: 1rem;
-  }
-
-  .header-name {
-    order: 1;
-    width: 100%;
-    text-align: center;
-    font-size: 1.4rem;
-  }
-
-  .header-contact {
-    order: 3;
-    width: 100%;
-    text-align: center;
-    padding: 0.6rem 1.5rem;
   }
 
   .hero {
@@ -513,6 +634,7 @@ a, button, .folder, .file-item, .close-btn, .sf-project-card, .sf-connect-link {
   width: 100%;
   height: 500vh;
   padding-bottom: 3rem;
+  margin-top: 4rem;
 }
 
 .file-folder {
@@ -886,8 +1008,14 @@ a, button, .folder, .file-item, .close-btn, .sf-project-card, .sf-connect-link {
 .photo-carousel {
   width: 100%;
   overflow: hidden;
-  padding: 3rem 0;
-  background-color: var(--bg-cream);
+  background-color: #3d251e;
+  margin-top: 4rem;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
 }
 
 .carousel-track {
@@ -917,13 +1045,16 @@ a, button, .folder, .file-item, .close-btn, .sf-project-card, .sf-connect-link {
 /* Site Footer */
 .site-footer {
   text-align: center;
-  padding: 3rem;
-  background-color: var(--bg-cream);
+  padding: 2rem;
+  position: absolute;
+  bottom: 2rem;
+  left: 0;
+  right: 0;
 }
 
 .site-footer p {
   font-family: 'Space Mono', monospace;
   font-size: 0.7rem;
-  color: var(--text-muted);
+  color: var(--bg-cream);
   letter-spacing: 0.05em;
 }

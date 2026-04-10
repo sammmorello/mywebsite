@@ -11,23 +11,48 @@
 </head>
 <body>
   <div class="page-border">
-    <!-- Header -->
-    <header class="header">
-      <span class="header-welcome">WELCOME</span>
-    </header>
+    <!-- Navigation -->
+    <nav class="nav">
+      <a href="#about" class="nav-link">About</a>
+      <a href="#portfolio" class="nav-link">Portfolio</a>
+      <a href="#ff-connect" class="nav-link">Contact</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-content">
+        <img src="assets/lacetrimphoto.png" alt="Samantha" class="hero-photo">
+        <div class="hero-text">
+          <span class="hero-text-top">HI, I'M</span>
+          <span class="hero-text-cursive">Samantha</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+      <div class="about-title">
+        <span class="about-title-top">ABOUT</span>
+        <span class="about-title-cursive">me</span>
+      </div>
+      <div class="about-columns">
+        <div class="about-col">
+          <p>I'm a data scientist with a passion for turning numbers into stories. Recently graduated from Arizona State University with a degree in Data Science, I love diving deep into datasets and finding the insights that matter.</p>
+        </div>
+        <div class="about-col">
+          <p>When I'm not coding or building models, you can find me exploring coffee shops, taking photos, or working on creative side projects. I believe in combining analytical thinking with a creative touch.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Brown Section -->
+    <section class="brown-section">
+    </section>
 
     <!-- Main Content -->
     <main class="main">
-      <section class="hero">
-        <div class="hero-content">
-          <div class="laptop-hero">
-            <img src="assets/mylaptopname.png" alt="Laptop" class="laptop-img">
-          </div>
-        </div>
-      </section>
-    </main>
 
-    <section class="file-organizer">
+    <section class="file-organizer" id="portfolio">
 
       <div class="file-folder" id="ff-education">
         <div class="ff-tab" data-folder="education">
@@ -190,11 +215,10 @@
         <img src="assets/pics/12.png" alt="Photo">
         <img src="assets/pics/13.png" alt="Photo">
       </div>
+      <footer class="site-footer">
+        <p>Made with love by Samantha Morello</p>
+      </footer>
     </section>
-
-    <footer class="site-footer">
-      <p>Made with love by Samantha Morello</p>
-    </footer>
 
     <!-- Folder Windows (hidden by default) -->
     <div class="folder-window" id="window-about-me">
