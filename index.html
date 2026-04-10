@@ -37,10 +37,10 @@
       </div>
       <div class="about-columns">
         <div class="about-col">
-          <p>I'm a data scientist with a passion for turning numbers into stories. Recently graduated from Arizona State University with a degree in Data Science, I love diving deep into datasets and finding the insights that matter.</p>
+          <p>I'm a recent Data Science graduate from Arizona State University with a deep love for analytics, math, and all things AI. There's something incredibly satisfying about taking messy, chaotic data and transforming it into meaningful insights that actually make a difference. Whether I'm building predictive models, exploring machine learning algorithms, or just nerding out over a beautifully clean dataset, I'm in my element. I thrive at the intersection of logic and creativity — because data isn't just numbers, it's storytelling.</p>
         </div>
         <div class="about-col">
-          <p>When I'm not coding or building models, you can find me exploring coffee shops, taking photos, or working on creative side projects. I believe in combining analytical thinking with a creative touch.</p>
+          <p>Outside of the data world, I'm a bit of a creative chameleon. I love design, content creation, and finding new ways to make things look and feel intentional. You'll probably find me lifting weights at the gym, attempting to become a runner (emphasis on attempting), or at home surrounded by my cats and a growing jungle of houseplants. I'm also lowkey a gamer when time allows. I believe life is about balance — between the analytical and the artistic, the serious and the silly, the grind and the things that make you feel alive.</p>
         </div>
       </div>
     </section>
@@ -53,6 +53,25 @@
     <main class="main">
 
     <section class="file-organizer" id="portfolio">
+
+      <div class="file-folder" id="ff-portfolio">
+        <div class="ff-tab" data-folder="portfolio">
+          <span class="ff-tab-label">PORTFOLIO</span>
+        </div>
+        <div class="ff-body">
+          <div class="ff-inner">
+            <div class="portfolio-intro">
+              <div class="portfolio-plate-container">
+                <img src="assets/silverplate.png" alt="Silver Plate" class="portfolio-plate">
+                <div class="portfolio-plate-text">
+                  <span class="portfolio-text-top">MY</span>
+                  <span class="portfolio-text-cursive">Portfolio</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <div class="file-folder" id="ff-education">
         <div class="ff-tab" data-folder="education">
@@ -530,32 +549,6 @@
       });
     });
 
-    // Progressive tab reveal on scroll
-    const folders = document.querySelectorAll('.file-folder');
-    const fileOrganizer = document.querySelector('.file-organizer');
-
-    function revealTabs() {
-      if (!fileOrganizer) return;
-
-      const organizerRect = fileOrganizer.getBoundingClientRect();
-      const scrollIntoOrganizer = -organizerRect.top;
-      const viewportHeight = window.innerHeight;
-
-      folders.forEach((folder, index) => {
-        const tab = folder.querySelector('.ff-tab');
-        if (!tab) return;
-
-        // Reveal tab when scrolling into its folder's section
-        const revealAt = index * viewportHeight - 100;
-
-        if (scrollIntoOrganizer >= revealAt) {
-          tab.classList.add('visible');
-        }
-      });
-    }
-
-    window.addEventListener('scroll', revealTabs, { passive: true });
-    revealTabs();
 
   </script>
 </body>

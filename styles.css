@@ -632,8 +632,6 @@ a, button, .folder, .file-item, .close-btn, .sf-project-card, .sf-connect-link {
 .file-organizer {
   position: relative;
   width: 100%;
-  height: 500vh;
-  padding-bottom: 3rem;
   margin-top: 4rem;
 }
 
@@ -641,12 +639,24 @@ a, button, .folder, .file-item, .close-btn, .sf-project-card, .sf-connect-link {
   position: sticky;
   top: 24px;
   width: calc(100% - 60px);
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
   height: calc(100vh - 24px);
   overflow: visible;
 }
 
-/* The folder tab */
+/* Portfolio fills first view */
+#ff-portfolio {
+  margin-top: 0;
+}
+
+/* Each folder needs a full viewport of scroll to reveal it */
+#ff-education { margin-top: calc(100vh - 24px); }
+#ff-data { margin-top: calc(100vh - 24px); }
+#ff-fun { margin-top: calc(100vh - 24px); }
+#ff-connect { margin-top: calc(100vh - 24px); margin-bottom: 4rem; }
+
+/* The folder tab - attached to top of each folder */
 .ff-tab {
   position: absolute;
   top: 0;
@@ -656,30 +666,18 @@ a, button, .folder, .file-item, .close-btn, .sf-project-card, .sf-connect-link {
   align-items: center;
   border-radius: 8px 8px 0 0;
   z-index: 100;
-  opacity: 0;
-  transform: translateY(-10px);
-  transition: opacity 0.4s ease, transform 0.4s ease;
   background: var(--folder-color);
 }
 
-.ff-tab.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* First tab always visible */
-.ff-tab[data-folder="education"] {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Stagger tabs horizontally */
-#ff-education .ff-tab { left: 30px; }
-#ff-data .ff-tab { left: 138px; }
-#ff-fun .ff-tab { left: 276px; }
-#ff-connect .ff-tab { left: 380px; }
+/* Stagger tabs horizontally - touching each other */
+#ff-portfolio .ff-tab { left: 30px; }
+#ff-education .ff-tab { left: 138px; }
+#ff-data .ff-tab { left: 246px; }
+#ff-fun .ff-tab { left: 384px; }
+#ff-connect .ff-tab { left: 486px; }
 
 /* Tab label colors - all light for dark backgrounds */
+#ff-portfolio .ff-tab-label,
 #ff-education .ff-tab-label,
 #ff-data .ff-tab-label,
 #ff-fun .ff-tab-label,
@@ -700,12 +698,62 @@ a, button, .folder, .file-item, .close-btn, .sf-project-card, .sf-connect-link {
   top: 44px;
   left: 0;
   right: 0;
-  height: calc(100vh - 68px);
+  height: calc(100% - 44px);
   overflow-y: auto;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 12px;
+}
+
+/* Portfolio intro */
+.portfolio-intro {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.portfolio-plate-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.portfolio-plate {
+  max-width: 90vw;
+  max-height: 80vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+.portfolio-plate-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.portfolio-text-top {
+  font-family: 'Cinzel', serif;
+  font-size: 5rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  color: var(--text-brown);
+  margin-bottom: -2rem;
+}
+
+.portfolio-text-cursive {
+  font-family: 'Pinyon Script', cursive;
+  font-size: 9rem;
+  color: var(--text-brown);
+  line-height: 1;
 }
 
 .ff-inner {
@@ -715,12 +763,18 @@ a, button, .folder, .file-item, .close-btn, .sf-project-card, .sf-connect-link {
 }
 
 /* Z-index stacking - later folders slide over previous ones */
-#ff-education { z-index: 1; }
-#ff-data { z-index: 2; }
-#ff-fun { z-index: 3; }
-#ff-connect { z-index: 4; }
+#ff-portfolio { z-index: 1; }
+#ff-education { z-index: 2; }
+#ff-data { z-index: 3; }
+#ff-fun { z-index: 4; }
+#ff-connect { z-index: 5; }
 
 /* Folder colors - gradient from dark to light */
+#ff-portfolio {
+  --folder-color: #2d1a14;
+  --folder-color-light: #3d251e;
+}
+
 #ff-education {
   --folder-color: #3d251e;
   --folder-color-light: #4c3228;
