@@ -13,76 +13,48 @@
   <div class="page-border">
     <!-- Navigation -->
     <nav class="nav">
-      <a href="#about" class="nav-link">About</a>
-      <a href="#portfolio" class="nav-link">Portfolio</a>
-      <a href="#ff-connect" class="nav-link">Contact</a>
+      <a href="#portfolio" class="nav-link" data-tab="welcome">Portfolio</a>
+      <a href="#portfolio" class="nav-link" data-tab="connect">Contact</a>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero">
-      <div class="hero-content">
-        <img src="assets/lacetrimphoto.png" alt="Samantha" class="hero-photo">
-        <div class="hero-text">
-          <span class="hero-text-top">HI, I'M</span>
-          <span class="hero-text-cursive">Samantha</span>
-        </div>
+    <!-- Intro Section -->
+    <section class="intro-section">
+      <div class="portfolio-intro-text">
+        <p class="portfolio-hi">Hi, I'm</p>
+        <h1 class="portfolio-name">Samantha<br>Morello</h1>
       </div>
+<button class="scroll-arrow" id="scroll-down" aria-label="Scroll down">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <polyline points="6,9 12,15 18,9"/>
+        </svg>
+      </button>
     </section>
 
-    <!-- About Section -->
-    <section class="about-section" id="about">
-      <div class="about-title">
-        <span class="about-title-top">ABOUT</span>
-        <span class="about-title-cursive">me</span>
-      </div>
-      <div class="about-columns">
-        <div class="about-col">
-          <p>I'm a recent Data Science graduate from Arizona State University with a deep love for analytics, math, and all things AI. There's something incredibly satisfying about taking messy, chaotic data and transforming it into meaningful insights that actually make a difference. Whether I'm building predictive models, exploring machine learning algorithms, or just nerding out over a beautifully clean dataset, I'm in my element. I thrive at the intersection of logic and creativity — because data isn't just numbers, it's storytelling.</p>
+    <!-- Portfolio Section -->
+    <section class="portfolio-section" id="portfolio">
+      <div class="folder-widget">
+        <div class="folder-tabs">
+          <button class="folder-tab active" data-panel="welcome">Welcome</button>
+          <button class="folder-tab" data-panel="education">Education</button>
+          <button class="folder-tab" data-panel="data">Data Projects</button>
+          <button class="folder-tab" data-panel="fun">Fun Stuff</button>
+          <button class="folder-tab" data-panel="connect">Let's Connect</button>
         </div>
-        <div class="about-col">
-          <p>Outside of the data world, I'm a bit of a creative chameleon. I love design, content creation, and finding new ways to make things look and feel intentional. You'll probably find me lifting weights at the gym, attempting to become a runner (emphasis on attempting), or at home surrounded by my cats and a growing jungle of houseplants. I'm also lowkey a gamer when time allows. I believe life is about balance — between the analytical and the artistic, the serious and the silly, the grind and the things that make you feel alive.</p>
-        </div>
-      </div>
-    </section>
+        <div class="folder-card">
 
-    <!-- Brown Section -->
-    <section class="brown-section">
-    </section>
-
-    <!-- Main Content -->
-    <main class="main">
-
-    <section class="file-organizer" id="portfolio">
-
-      <div class="file-folder" id="ff-portfolio">
-        <div class="ff-tab" data-folder="portfolio">
-          <span class="ff-tab-label">PORTFOLIO</span>
-        </div>
-        <div class="ff-body">
-          <div class="ff-inner">
-            <div class="portfolio-intro">
-              <div class="portfolio-plate-container">
-                <img src="assets/silverplate.png" alt="Silver Plate" class="portfolio-plate">
-                <div class="portfolio-plate-text">
-                  <span class="portfolio-text-top">MY</span>
-                  <span class="portfolio-text-cursive">Portfolio</span>
-                </div>
-              </div>
+          <!-- Welcome -->
+          <div class="folder-panel active" id="panel-welcome">
+            <div class="welcome-panel">
+              <h2 class="welcome-heading"><span class="welcome-line1">welcome to my</span><span class="welcome-line2">Portfolio</span></h2>
             </div>
           </div>
-        </div>
-      </div>
 
-      <div class="file-folder" id="ff-education">
-        <div class="ff-tab" data-folder="education">
-          <span class="ff-tab-label">EDUCATION</span>
-        </div>
-        <div class="ff-body">
-          <div class="ff-inner">
+          <!-- Education -->
+          <div class="folder-panel active" id="panel-education">
             <div class="sf-two-col">
               <div class="sf-col">
-                <p class="sf-eyebrow">Tempe, Arizona · Jan 2023 – May 2025</p>
                 <h2 class="sf-heading">Arizona State University</h2>
+                <p class="sf-eyebrow">Tempe, Arizona · Jan 2023 – May 2025</p>
                 <h3 class="sf-subheading">Bachelor of Science in Data Science<br>Mathematics Track</h3>
                 <div class="sf-tags">
                   <span class="sf-tag sf-tag-highlight">GPA 3.8</span>
@@ -90,27 +62,18 @@
                 </div>
               </div>
               <div class="sf-col">
-                <p class="sf-eyebrow">Mesa, Arizona · Aug 2020 – Dec 2022</p>
                 <h2 class="sf-heading">Mesa Community College</h2>
+                <p class="sf-eyebrow">Mesa, Arizona · Aug 2020 – Dec 2022</p>
                 <h3 class="sf-subheading">Associates of Science</h3>
-                <ul class="sf-list">
-                  <li>Calculus I, II, III</li>
-                  <li>Introduction to Programming (Python, Java)</li>
-                  <li>Statistics & Probability</li>
-                </ul>
+                <div class="sf-tags">
+                  <span class="sf-tag sf-tag-highlight">GPA 3.7</span>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
 
-      
-      <div class="file-folder" id="ff-data">
-        <div class="ff-tab" data-folder="data">
-          <span class="ff-tab-label">DATA PROJECTS</span>
-        </div>
-        <div class="ff-body">
-          <div class="ff-inner">
+          <!-- Data Projects -->
+          <div class="folder-panel" id="panel-data">
             <div class="sf-four-grid">
               <div class="sf-card">
                 <p class="sf-card-eyebrow">Fall 2024</p>
@@ -153,16 +116,9 @@
               </div>
             </div>
           </div>
-        </div>
-      </div>
 
-      
-      <div class="file-folder" id="ff-fun">
-        <div class="ff-tab" data-folder="fun">
-          <span class="ff-tab-label">FUN STUFF</span>
-        </div>
-        <div class="ff-body">
-          <div class="ff-inner">
+          <!-- Fun Stuff -->
+          <div class="folder-panel" id="panel-fun">
             <div class="sf-two-col">
               <a href="https://sammmorello.github.io/vintage-photobooth/" target="_blank" class="sf-project-card">
                 <p class="sf-card-eyebrow">Web · JavaScript</p>
@@ -178,377 +134,181 @@
               </a>
             </div>
           </div>
-        </div>
-      </div>
 
-      
-      <div class="file-folder" id="ff-connect">
-        <div class="ff-tab" data-folder="connect">
-          <span class="ff-tab-label">LET'S CONNECT</span>
-        </div>
-        <div class="ff-body">
-          <div class="ff-inner ff-connect-inner">
-            <h2 class="sf-connect-heading">let's talk</h2>
-            <div class="sf-connect-links">
-              <a href="mailto:samanthaamorello@gmail.com" class="sf-connect-link">
-                <span class="sf-connect-label">email</span>
-                <span class="sf-connect-value">samanthaamorello@gmail.com</span>
-              </a>
-              <a href="https://linkedin.com/in/samantha-morello" target="_blank" class="sf-connect-link">
-                <span class="sf-connect-label">linkedin</span>
-                <span class="sf-connect-value">linkedin.com/in/samantha-morello</span>
-              </a>
-              <a href="https://github.com/sammmorello" target="_blank" class="sf-connect-link">
-                <span class="sf-connect-label">github</span>
-                <span class="sf-connect-value">github.com/sammmorello</span>
-              </a>
+          <!-- Let's Connect -->
+          <div class="folder-panel" id="panel-connect">
+            <div class="fp-connect-inner">
+              <div class="sf-connect-links">
+                <a href="mailto:samanthaamorello@gmail.com" class="sf-connect-link">
+                  <svg class="sf-connect-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <polyline points="22,6 12,13 2,6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  <span class="sf-connect-label">Email</span>
+                  <span class="sf-connect-value">samanthaamorello@gmail.com</span>
+                </a>
+                <a href="https://linkedin.com/in/samantha-morello" target="_blank" class="sf-connect-link">
+                  <svg class="sf-connect-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="1.5"/>
+                    <path d="M8 11v6M8 7.5v.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                    <path d="M12 17v-4c0-1.1.9-2 2-2s2 .9 2 2v4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  <span class="sf-connect-label">LinkedIn</span>
+                  <span class="sf-connect-value">linkedin.com/in/samantha-morello</span>
+                </a>
+                <a href="https://github.com/sammmorello" target="_blank" class="sf-connect-link">
+                  <svg class="sf-connect-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  <span class="sf-connect-label">GitHub</span>
+                  <span class="sf-connect-value">github.com/sammmorello</span>
+                </a>
+              </div>
             </div>
           </div>
+
         </div>
       </div>
-
-
     </section>
 
-    <section class="photo-carousel">
-      <div class="carousel-track">
-        <img src="assets/pics/4.png" alt="Photo">
-        <img src="assets/pics/5.png" alt="Photo">
-        <img src="assets/pics/6.png" alt="Photo">
-        <img src="assets/pics/7.png" alt="Photo">
-        <img src="assets/pics/8.png" alt="Photo">
-        <img src="assets/pics/9.png" alt="Photo">
-        <img src="assets/pics/10.png" alt="Photo">
-        <img src="assets/pics/11.png" alt="Photo">
-        <img src="assets/pics/12.png" alt="Photo">
-        <img src="assets/pics/13.png" alt="Photo">
-        <!-- Duplicate for seamless loop -->
-        <img src="assets/pics/4.png" alt="Photo">
-        <img src="assets/pics/5.png" alt="Photo">
-        <img src="assets/pics/6.png" alt="Photo">
-        <img src="assets/pics/7.png" alt="Photo">
-        <img src="assets/pics/8.png" alt="Photo">
-        <img src="assets/pics/9.png" alt="Photo">
-        <img src="assets/pics/10.png" alt="Photo">
-        <img src="assets/pics/11.png" alt="Photo">
-        <img src="assets/pics/12.png" alt="Photo">
-        <img src="assets/pics/13.png" alt="Photo">
-      </div>
-      <footer class="site-footer">
-        <p>Made with love by Samantha Morello</p>
-      </footer>
-    </section>
+    <footer class="site-footer">
+      made with love by samantha morello
+    </footer>
 
-    <!-- Folder Windows (hidden by default) -->
-    <div class="folder-window" id="window-about-me">
-      <div class="folder-window-inner">
-        <div class="window-bar">
-          <span class="window-dot red close-btn"></span>
-          <span class="window-dot yellow"></span>
-          <span class="window-dot green"></span>
-          <span class="window-title">about me</span>
-        </div>
-        <div class="window-body">
-          <p class="window-placeholder">coming soon...</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="folder-window" id="window-education">
-      <div class="folder-window-inner">
-        <div class="window-bar">
-          <span class="window-dot red close-btn"></span>
-          <span class="window-dot yellow"></span>
-          <span class="window-dot green"></span>
-          <span class="window-title">education</span>
-        </div>
-        <div class="window-body">
-          <div class="file-grid">
-            <div class="file-item" data-nested="asu">
-              <div class="file-icon">
-                <div class="mini-folder-tab"></div>
-                <div class="mini-folder-body"></div>
-              </div>
-              <span class="file-name">arizona state</span>
-            </div>
-            <div class="file-item" data-nested="mcc">
-              <div class="file-icon">
-                <div class="mini-folder-tab"></div>
-                <div class="mini-folder-body"></div>
-              </div>
-              <span class="file-name">mesa community</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="folder-window" id="window-asu">
-      <div class="folder-window-inner">
-        <div class="window-bar">
-          <span class="window-dot red close-btn"></span>
-          <span class="window-dot yellow"></span>
-          <span class="window-dot green"></span>
-          <span class="window-title">arizona state university</span>
-        </div>
-        <div class="window-body project-detail">
-          <p class="project-semester">Tempe, Arizona</p>
-          <h2 class="project-title">Arizona State University</h2>
-          <h3 class="project-subtitle">Bachelor of Science in Data Science - Mathematics</h3>
-          <p class="project-description">Jan 2023 - May 2025</p>
-          <div class="project-section">
-            <div class="tech-tags">
-              <span class="tech-tag highlight">GPA: 3.8</span>
-              <span class="tech-tag highlight">Summa Cum Laude</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="folder-window" id="window-mcc">
-      <div class="folder-window-inner">
-        <div class="window-bar">
-          <span class="window-dot red close-btn"></span>
-          <span class="window-dot yellow"></span>
-          <span class="window-dot green"></span>
-          <span class="window-title">mesa community college</span>
-        </div>
-        <div class="window-body project-detail">
-          <p class="project-semester">Mesa, Arizona</p>
-          <h2 class="project-title">Mesa Community College</h2>
-          <h3 class="project-subtitle">Associates of Science</h3>
-          <p class="project-description">Aug 2020 - Dec 2022</p>
-          <div class="project-section">
-            <h4>Relevant Coursework:</h4>
-            <ul class="project-list">
-              <li>Advanced Mathematics - Calculus I, II, III</li>
-              <li>Introduction to Programming (Python, Java)</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="folder-window" id="window-data-dump">
-      <div class="folder-window-inner">
-        <div class="window-bar">
-          <span class="window-dot red close-btn"></span>
-          <span class="window-dot yellow"></span>
-          <span class="window-dot green"></span>
-          <span class="window-title">data dump</span>
-        </div>
-        <div class="window-body">
-          <div class="file-grid">
-            <div class="file-item" data-nested="capstone">
-              <div class="file-icon">
-                <div class="mini-folder-tab"></div>
-                <div class="mini-folder-body"></div>
-              </div>
-              <span class="file-name">capstone</span>
-            </div>
-            <div class="file-item" data-nested="nba-classification">
-              <div class="file-icon">
-                <div class="mini-folder-tab"></div>
-                <div class="mini-folder-body"></div>
-              </div>
-              <span class="file-name">nba classification</span>
-            </div>
-            <div class="file-item" data-nested="cubs-regression">
-              <div class="file-icon">
-                <div class="mini-folder-tab"></div>
-                <div class="mini-folder-body"></div>
-              </div>
-              <span class="file-name">cubs regression</span>
-            </div>
-            <div class="file-item" data-nested="cycle-tracking">
-              <div class="file-icon">
-                <div class="mini-folder-tab"></div>
-                <div class="mini-folder-body"></div>
-              </div>
-              <span class="file-name">cycle tracking</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="folder-window" id="window-capstone">
-      <div class="folder-window-inner">
-        <div class="window-bar">
-          <span class="window-dot red close-btn"></span>
-          <span class="window-dot yellow"></span>
-          <span class="window-dot green"></span>
-          <span class="window-title">capstone</span>
-        </div>
-        <div class="window-body project-detail">
-          <p class="project-semester">Fall 2024</p>
-          <h2 class="project-title">Data Science Capstone</h2>
-          <h3 class="project-subtitle">Optimizing Coffee Shop Sales with Predictive Modeling</h3>
-          <p class="project-description">Comprehensive analysis of coffee shop sales data using machine learning techniques to forecast revenue and optimize business operations.</p>
-          <div class="project-section">
-            <h4>Project Highlights:</h4>
-            <ul class="project-list">
-              <li>Sales Forecasting using advanced regression models</li>
-              <li>Decision Tree and Random Forest implementation</li>
-              <li>Feature Engineering for improved model performance</li>
-              <li>Interactive Tool Development for business insights</li>
-            </ul>
-          </div>
-          <div class="project-section">
-            <h4>Technologies Used:</h4>
-            <div class="tech-tags">
-              <span class="tech-tag">Python</span>
-              <span class="tech-tag">Machine Learning</span>
-              <span class="tech-tag">Data Visualization</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="folder-window" id="window-nba-classification">
-      <div class="folder-window-inner">
-        <div class="window-bar">
-          <span class="window-dot red close-btn"></span>
-          <span class="window-dot yellow"></span>
-          <span class="window-dot green"></span>
-          <span class="window-title">nba classification</span>
-        </div>
-        <div class="window-body project-detail">
-          <p class="project-semester">Spring 2024</p>
-          <h2 class="project-title">Machine Learning in Data Science</h2>
-          <h3 class="project-subtitle">NBA Player Classification with Machine Learning</h3>
-          <p class="project-description">Advanced classification system using multiple machine learning algorithms to predict NBA player performance categories and positions.</p>
-          <div class="project-section">
-            <h4>Technologies Used:</h4>
-            <div class="tech-tags">
-              <span class="tech-tag">Python</span>
-              <span class="tech-tag">Scikit-learn</span>
-              <span class="tech-tag">Sports Analytics</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="folder-window" id="window-cubs-regression">
-      <div class="folder-window-inner">
-        <div class="window-bar">
-          <span class="window-dot red close-btn"></span>
-          <span class="window-dot yellow"></span>
-          <span class="window-dot green"></span>
-          <span class="window-title">cubs regression</span>
-        </div>
-        <div class="window-body project-detail">
-          <p class="project-semester">Spring 2024</p>
-          <h2 class="project-title">Applied Regression</h2>
-          <h3 class="project-subtitle">Team Wins for Chicago Cubs with Multiple Regression</h3>
-          <p class="project-description">Statistical analysis of Chicago Cubs performance using multiple regression techniques.</p>
-          <div class="project-section">
-            <h4>Technologies Used:</h4>
-            <div class="tech-tags">
-              <span class="tech-tag">SAS</span>
-              <span class="tech-tag">Statistical Modeling</span>
-              <span class="tech-tag">Sports Analytics</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="folder-window" id="window-cycle-tracking">
-      <div class="folder-window-inner">
-        <div class="window-bar">
-          <span class="window-dot red close-btn"></span>
-          <span class="window-dot yellow"></span>
-          <span class="window-dot green"></span>
-          <span class="window-title">cycle tracking</span>
-        </div>
-        <div class="window-body project-detail">
-          <p class="project-semester">Personal Project</p>
-          <h2 class="project-title">Cycle Tracking & Temperature Analysis</h2>
-          <h3 class="project-subtitle">Using Personal Health Data</h3>
-          <p class="project-description">Personal health analytics project analyzing menstrual cycle patterns and temperature variations.</p>
-          <div class="project-section">
-            <h4>Technologies Used:</h4>
-            <div class="tech-tags">
-              <span class="tech-tag">Python</span>
-              <span class="tech-tag">SQL</span>
-              <span class="tech-tag">PostgreSQL</span>
-              <span class="tech-tag">Health Analytics</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="folder-window" id="window-fun-stuff">
-      <div class="folder-window-inner">
-        <div class="window-bar">
-          <span class="window-dot red close-btn"></span>
-          <span class="window-dot yellow"></span>
-          <span class="window-dot green"></span>
-          <span class="window-title">fun stuff</span>
-        </div>
-        <div class="window-body">
-          <div class="file-grid">
-            <a href="https://sammmorello.github.io/vintage-photobooth/" class="file-item" target="_blank">
-              <div class="file-icon">
-                <div class="mini-folder-tab"></div>
-                <div class="mini-folder-body"></div>
-              </div>
-              <span class="file-name">vintage photobooth</span>
-            </a>
-            <a href="https://sammmorello.github.io/happybdaynicholas/" class="file-item" target="_blank">
-              <div class="file-icon">
-                <div class="mini-folder-tab"></div>
-                <div class="mini-folder-body"></div>
-              </div>
-              <span class="file-name">happy birthday nicholas</span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
 
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollToPlugin.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
   <script>
-    // Folder click functionality
-    document.querySelectorAll('.folder').forEach(folder => {
-      folder.addEventListener('click', () => {
-        const folderName = folder.dataset.folder;
-        const window = document.getElementById('window-' + folderName);
-        if (window) window.classList.add('active');
-      });
-    });
+    gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
-    // Nested folder click functionality
-    document.querySelectorAll('.file-item[data-nested]').forEach(item => {
-      item.addEventListener('click', () => {
-        const nestedName = item.dataset.nested;
-        const window = document.getElementById('window-' + nestedName);
-        if (window) window.classList.add('active');
-      });
-    });
-
-    // Close window functionality
-    document.querySelectorAll('.close-btn').forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        btn.closest('.folder-window').classList.remove('active');
-      });
-    });
-
-    // Close on clicking outside
-    document.querySelectorAll('.folder-window').forEach(win => {
-      win.addEventListener('click', (e) => {
-        if (e.target === win) {
-          win.classList.remove('active');
+    // Smooth scroll for nav links (with optional tab switch)
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', (e) => {
+        const href = link.getAttribute('href');
+        if (href.startsWith('#')) {
+          e.preventDefault();
+          const targetTab = link.dataset.tab;
+          gsap.to(window, {
+            duration: 1.2,
+            scrollTo: { y: href, offsetY: 0 },
+            ease: 'power3.inOut',
+            onComplete: () => {
+              switchPanel(targetTab);
+            }
+          });
         }
       });
     });
 
+    // Tab switching with GSAP transitions
+    function switchPanel(panelId) {
+      const newPanel = document.getElementById('panel-' + panelId);
+      const currentPanel = document.querySelector('.folder-panel.active');
+      if (!newPanel || currentPanel === newPanel) return;
+
+      document.querySelectorAll('.folder-tab').forEach(t => {
+        t.classList.toggle('active', t.dataset.panel === panelId);
+      });
+
+      gsap.to(currentPanel, {
+        opacity: 0,
+        y: 10,
+        duration: 0.2,
+        ease: 'power2.in',
+        onComplete: () => {
+          currentPanel.classList.remove('active');
+          newPanel.classList.add('active');
+          gsap.fromTo(newPanel,
+            { opacity: 0, y: -12 },
+            { opacity: 1, y: 0, duration: 0.38, ease: 'power3.out' }
+          );
+        }
+      });
+    }
+
+    document.querySelectorAll('.folder-tab').forEach(tab => {
+      tab.addEventListener('click', () => switchPanel(tab.dataset.panel));
+    });
+
+    // Letter hover effect
+    function splitLetters(el) {
+      const html = el.innerHTML;
+      el.innerHTML = html.split('').map(ch =>
+        ch === ' ' ? '<span class="letter" style="display:inline-block;white-space:pre"> </span>'
+        : ch === '\n' || ch === '<' ? ch
+        : `<span class="letter" style="display:inline-block">${ch}</span>`
+      ).join('');
+    }
+
+    // Handle <br> by splitting on it first
+    function splitWithBreaks(el) {
+      const parts = el.innerHTML.split('<br>');
+      el.innerHTML = parts.map(part =>
+        part.split('').map(ch =>
+          ch === ' '
+            ? '<span class="letter" style="display:inline-block;white-space:pre"> </span>'
+            : `<span class="letter" style="display:inline-block">${ch}</span>`
+        ).join('')
+      ).join('<br>');
+    }
+
+    splitLetters(document.querySelector('.portfolio-hi'));
+    splitWithBreaks(document.querySelector('.portfolio-name'));
+
+    document.querySelectorAll('.portfolio-hi .letter, .portfolio-name .letter').forEach(letter => {
+      letter.addEventListener('mouseenter', () => {
+        gsap.to(letter, {
+          y: -10,
+          rotate: gsap.utils.random(-12, 12),
+          duration: 0.25,
+          ease: 'power2.out',
+          overwrite: true
+        });
+      });
+      letter.addEventListener('mouseleave', () => {
+        gsap.to(letter, {
+          y: 0,
+          rotate: 0,
+          duration: 0.5,
+          ease: 'elastic.out(1, 0.4)',
+          overwrite: true
+        });
+      });
+    });
+
+// Scroll arrow — click to scroll, fade out when leaving intro
+    document.getElementById('scroll-down').addEventListener('click', () => {
+      gsap.to(window, {
+        duration: 1.2,
+        scrollTo: { y: '#portfolio', offsetY: 0 },
+        ease: 'power3.inOut'
+      });
+    });
+
+    gsap.to('#scroll-down', {
+      opacity: 0,
+      pointerEvents: 'none',
+      scrollTrigger: {
+        trigger: '.intro-section',
+        start: 'bottom 90%',
+        end: 'bottom 60%',
+        scrub: true
+      }
+    });
+
+    // Folder widget entrance
+    gsap.from('.folder-widget', {
+      opacity: 0,
+      y: 50,
+      duration: 1,
+      ease: 'power3.out',
+      scrollTrigger: {
+        trigger: '.portfolio-section',
+        start: 'top 80%',
+      }
+    });
 
   </script>
 </body>
