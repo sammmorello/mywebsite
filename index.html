@@ -182,7 +182,7 @@
       made with love by samantha morello
     </footer>
 
-    <img src="assets/pixelcalico.png" alt="" class="border-cat">
+    <img src="publicassets/pixelcalico.png" alt="" class="border-cat">
 
   </div>
 
@@ -191,6 +191,14 @@
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
   <script>
     gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+
+    // Page load fade-in
+    gsap.from('.page-border', {
+      opacity: 0,
+      y: 18,
+      duration: 2.4,
+      ease: 'power4.out'
+    });
 
     // Smooth scroll
     const smoothScroll = (function() {
