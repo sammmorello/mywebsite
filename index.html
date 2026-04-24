@@ -200,8 +200,11 @@
       ease: 'elastic.out(0.6, 0.75)'
     });
 
-    // Smooth scroll
+    // Smooth scroll (desktop only)
     const smoothScroll = (function() {
+      if (window.matchMedia('(max-width: 768px)').matches) {
+        return { lock() {}, unlock() {} };
+      }
       let current = 0;
       let target = 0;
       let locked = false;

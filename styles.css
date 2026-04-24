@@ -402,48 +402,6 @@ input, textarea, select {
    Responsive
    ===================================================== */
 
-@media (max-width: 600px) {
-  .nav {
-    gap: 2rem;
-  }
-
-  .nav-link {
-    font-size: 0.75rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .page-border {
-    margin: 10px;
-  }
-
-  .folder-icon {
-    width: 65px;
-  }
-
-  .window-body {
-    min-width: 320px;
-    min-height: 250px;
-    padding: 1.5rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .folders-grid {
-    gap: 1.5rem;
-  }
-
-  .folder-icon {
-    width: 55px;
-  }
-
-  .window-body {
-    min-width: 280px;
-    min-height: 200px;
-    padding: 1rem;
-  }
-
-}
 
 /* =====================================================
    Portfolio — Tabbed Folder Widget
@@ -1219,3 +1177,171 @@ input, textarea, select {
 [data-theme="dark"] .compose-titlebar,
 [data-theme="dark"] .compose-footer { background: #0d0907; }
 [data-theme="dark"] .compose-field { border-color: rgba(200,160,120,0.1); }
+
+/* =====================================================
+   Responsive — Mobile
+   ===================================================== */
+
+@media (max-width: 768px) {
+
+  /* Layout */
+  .page-border {
+    margin: 8px;
+  }
+
+  /* Nav */
+  .nav {
+    gap: 1.5rem;
+    top: 26px;
+  }
+
+  .nav-link {
+    font-size: 0.58rem;
+    letter-spacing: 0.08em;
+    padding-bottom: 2px;
+  }
+
+  /* Hero — scale text to fit screen */
+  .intro-section {
+    padding: 0 1.5rem;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .portfolio-intro-text {
+    align-items: center;
+  }
+
+  .portfolio-hi {
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+  }
+
+  .portfolio-name {
+    font-size: 13vw;
+    line-height: 1;
+  }
+
+  .scroll-arrow {
+    bottom: 2.5rem;
+  }
+
+  /* Portfolio section */
+  .portfolio-section {
+    height: auto;
+    min-height: unset;
+    padding: 1.25rem 2rem 2rem;
+    align-items: flex-start;
+  }
+
+  .folder-widget {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* Tabs — single line, compressed to fit */
+  .folder-tabs {
+    padding: 0 2px;
+    gap: 2px;
+    flex-wrap: nowrap;
+    overflow: visible;
+  }
+
+  .folder-tab {
+    padding: 7px 4px;
+    font-size: 0.35rem;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+    flex: 1 1 0;
+    min-width: 0;
+    border-radius: 8px 8px 0 0;
+    text-align: center;
+  }
+
+  /* Card — shrink/grow with content */
+  .folder-card {
+    height: auto !important;
+    min-height: unset;
+    border-radius: 12px;
+    overflow: visible;
+  }
+
+  /* Panels */
+  .folder-panel {
+    padding: 1.5rem 1.25rem;
+    height: auto;
+    min-height: unset;
+    overflow: visible;
+  }
+
+  .folder-panel.active {
+    align-items: flex-start;
+  }
+
+  /* Welcome */
+  .welcome-panel {
+    width: 100%;
+    min-height: 40vh;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .welcome-heading {
+    align-items: center;
+  }
+
+  .welcome-line1 {
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+  }
+
+  .welcome-line2 {
+    font-size: 16vw;
+  }
+
+  /* Education */
+  .sf-two-col {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .sf-heading { font-size: 1.8rem; }
+  .sf-eyebrow { font-size: 0.68rem; }
+  .sf-subheading { font-size: 1.1rem; }
+
+  .sf-tag {
+    font-size: 0.65rem;
+    padding: 5px 10px;
+  }
+
+  /* Data projects */
+  .sf-four-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .sf-card { padding: 1.25rem; }
+  .sf-card-title { font-size: 1.4rem; }
+  .sf-card-desc { font-size: 0.68rem; }
+
+  /* Fun stuff */
+  .sf-project-card { padding: 1.25rem; }
+
+  /* Connect */
+  .sf-connect-links {
+    gap: 1.5rem;
+    width: 100%;
+  }
+
+  .sf-connect-icon { width: 30px; height: 30px; }
+  .sf-connect-value { font-size: 0.95rem; }
+
+  /* Footer */
+  .site-footer { font-size: 0.52rem; }
+
+  .border-cat {
+    width: 20px;
+  }
+}
