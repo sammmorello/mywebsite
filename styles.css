@@ -56,7 +56,6 @@ input, textarea, select {
 .page-border {
   min-height: 100vh;
   position: relative;
-  overflow: hidden;
 }
 
 
@@ -457,7 +456,8 @@ input, textarea, select {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0 5rem;
+  gap: 2rem;
+  padding: 0 8rem;
   background: var(--bg-cream);
   position: relative;
 }
@@ -465,7 +465,6 @@ input, textarea, select {
 .portfolio-intro-text {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
 }
 
 .portfolio-hi {
@@ -485,6 +484,7 @@ input, textarea, select {
   margin: 0;
   font-weight: 400;
 }
+
 
 .scroll-arrow {
   position: absolute;
@@ -1115,6 +1115,16 @@ input, textarea, select {
   opacity: 0.6;
 }
 
+.border-cat {
+  position: absolute;
+  bottom: 6px;
+  right: 28px;
+  width: 24px;
+  height: auto;
+  image-rendering: pixelated;
+  z-index: 9999;
+}
+
 /* =====================================================
    Page frame + section dividers
    ===================================================== */
@@ -1136,7 +1146,7 @@ input, textarea, select {
 
 /* Theme dots */
 .theme-dots {
-  position: fixed;
+  position: absolute;
   top: 26px;
   right: 36px;
   display: flex;
