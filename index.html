@@ -11,6 +11,13 @@
 </head>
 <body>
   <div class="page-border">
+    <!-- Theme dots -->
+    <div class="theme-dots">
+      <button class="theme-dot dot-light" data-theme="light" aria-label="Light theme"></button>
+      <button class="theme-dot dot-mid" data-theme="mid" aria-label="Warm dark theme"></button>
+      <button class="theme-dot dot-dark" data-theme="dark" aria-label="Dark theme"></button>
+    </div>
+
     <!-- Navigation -->
     <nav class="nav">
       <a href="#portfolio" class="nav-link" data-tab="welcome">Portfolio</a>
@@ -182,6 +189,18 @@
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
   <script>
     gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+
+    // Theme switcher
+    const dots = document.querySelectorAll('.theme-dot');
+    dots.forEach(dot => {
+      dot.addEventListener('click', () => {
+        const theme = dot.dataset.theme;
+        document.documentElement.setAttribute('data-theme', theme === 'light' ? '' : theme);
+        dots.forEach(d => d.classList.toggle('active', d === dot));
+      });
+    });
+    // Set light as default active
+    document.querySelector('.dot-light').classList.add('active');
 
     // Smooth scroll for nav links (with optional tab switch)
     document.querySelectorAll('.nav-link').forEach(link => {
