@@ -1229,9 +1229,10 @@ input, textarea, select {
   /* Portfolio section */
   .portfolio-section {
     height: auto;
-    min-height: unset;
+    min-height: 100svh;
     padding: 1.25rem 2rem 2rem;
-    align-items: flex-start;
+    align-items: center;
+    justify-content: center;
   }
 
   .folder-widget {
