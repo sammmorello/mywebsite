@@ -1241,9 +1241,9 @@ input, textarea, select {
     box-sizing: border-box;
   }
 
-  /* Tabs — single line, compressed to fit */
+  /* Tabs — single line, inset so card corners show */
   .folder-tabs {
-    padding: 0 2px;
+    padding: 0 12px;
     gap: 2px;
     flex-wrap: nowrap;
     overflow: visible;
@@ -1256,13 +1256,13 @@ input, textarea, select {
     white-space: nowrap;
     flex: 1 1 0;
     min-width: 0;
-    border-radius: 8px 8px 0 0;
+    border-radius: 6px 6px 0 0;
     text-align: center;
   }
 
-  /* Card — shrink/grow with content */
+  /* Card — height fits content */
   .folder-card {
-    height: auto !important;
+    height: auto;
     min-height: unset;
     border-radius: 12px;
     overflow: visible;

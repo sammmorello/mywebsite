@@ -280,6 +280,8 @@
     });
 
     // Tab switching with GSAP transitions
+    const panelOrder = ['welcome', 'education', 'data', 'fun', 'connect'];
+
     function switchPanel(panelId) {
       const newPanel = document.getElementById('panel-' + panelId);
       const activePanels = document.querySelectorAll('.folder-panel.active');
@@ -290,21 +292,62 @@
       });
 
       const currentPanel = activePanels[0];
-      // Clear any stray active panels immediately
       activePanels.forEach(p => { if (p !== currentPanel) p.classList.remove('active'); });
 
-      gsap.to(currentPanel, {
-        opacity: 0,
-        y: 10,
-        duration: 0.2,
-        ease: 'power2.in',
+      const card = document.querySelector('.folder-card');
+      const widget = document.querySelector('.folder-widget');
+      const cardW = card.offsetWidth;
+      const cardH = card.offsetHeight;
+      const widgetScreenTop = widget.getBoundingClientRect().top;
+
+      // Determine slide direction from panel order
+      const currentId = currentPanel.id.replace('panel-', '');
+      const dir = panelOrder.indexOf(panelId) > panelOrder.indexOf(currentId) ? 1 : -1;
+
+      // Lock card and position both panels absolutely
+      gsap.set(card, { height: cardH, overflow: 'hidden', position: 'relative' });
+      [currentPanel, newPanel].forEach(p => {
+        p.style.position = 'absolute';
+        p.style.top = '0';
+        p.style.left = '0';
+        p.style.width = '100%';
+        p.style.boxSizing = 'border-box';
+        gsap.set(p, { opacity: 1, x: 0 });
+      });
+
+      newPanel.classList.add('active');
+      gsap.set(newPanel, { x: dir * cardW });
+
+      // Measure new panel height while off-screen
+      const endHeight = newPanel.scrollHeight;
+
+      // Slide and resize simultaneously
+      gsap.to(currentPanel, { x: -dir * cardW, duration: 0.42, ease: 'power2.inOut' });
+      gsap.to(newPanel, {
+        x: 0,
+        duration: 0.42,
+        ease: 'power2.inOut',
         onComplete: () => {
           currentPanel.classList.remove('active');
-          newPanel.classList.add('active');
-          gsap.fromTo(newPanel,
-            { opacity: 0, y: -12 },
-            { opacity: 1, y: 0, duration: 0.38, ease: 'power3.out' }
-          );
+          [currentPanel, newPanel].forEach(p => {
+            p.style.position = '';
+            p.style.top = '';
+            p.style.left = '';
+            p.style.width = '';
+            p.style.boxSizing = '';
+            gsap.set(p, { x: 0, opacity: 1 });
+          });
+          gsap.set(card, { height: 'auto', overflow: 'visible', position: '' });
+        }
+      });
+
+      gsap.to(card, {
+        height: endHeight,
+        duration: 0.42,
+        ease: 'power2.inOut',
+        onUpdate: () => {
+          const drift = widget.getBoundingClientRect().top - widgetScreenTop;
+          if (Math.abs(drift) > 0.5) window.scrollTo({ top: window.scrollY + drift, behavior: 'instant' });
         }
       });
     }
@@ -380,6 +423,103 @@
         scrub: true
       }
     });
+
+    // Mobile swipe between panels
+    (function() {
+      const panels = panelOrder;
+      const card = document.querySelector('.folder-card');
+      let startX = 0;
+      let startY = 0;
+      let swiping = false;
+
+      card.addEventListener('touchstart', (e) => {
+        startX = e.touches[0].clientX;
+        startY = e.touches[0].clientY;
+        swiping = false;
+      }, { passive: true });
+
+      card.addEventListener('touchmove', (e) => {
+        const dx = Math.abs(e.touches[0].clientX - startX);
+        const dy = Math.abs(e.touches[0].clientY - startY);
+        if (dx > dy && dx > 8) {
+          swiping = true;
+          e.preventDefault(); // lock page in place during horizontal swipe
+        }
+      }, { passive: false });
+
+      card.addEventListener('touchend', (e) => {
+        if (!swiping) return;
+        const diff = startX - e.changedTouches[0].clientX;
+        if (Math.abs(diff) < 40) return;
+
+        const activeTab = document.querySelector('.folder-tab.active');
+        const currentIndex = panels.indexOf(activeTab?.dataset.panel);
+        if (currentIndex === -1) return;
+
+        const dir = diff > 0 ? 1 : -1;
+        const next = currentIndex + dir;
+        if (next < 0 || next >= panels.length) return;
+
+        const currentPanel = document.querySelector('.folder-panel.active');
+        const newPanel = document.getElementById('panel-' + panels[next]);
+        const widget = document.querySelector('.folder-widget');
+        const cardW = card.offsetWidth;
+        const cardH = card.offsetHeight;
+        const widgetScreenTop = widget.getBoundingClientRect().top;
+
+        // Update tabs
+        document.querySelectorAll('.folder-tab').forEach(t => {
+          t.classList.toggle('active', t.dataset.panel === panels[next]);
+        });
+
+        // Lock card size and clip
+        gsap.set(card, { height: cardH, overflow: 'hidden', position: 'relative' });
+
+        // Position both panels side by side absolutely
+        [currentPanel, newPanel].forEach(p => {
+          p.style.position = 'absolute';
+          p.style.top = '0';
+          p.style.left = '0';
+          p.style.width = '100%';
+          p.style.boxSizing = 'border-box';
+          gsap.set(p, { opacity: 1, x: 0 });
+        });
+
+        newPanel.classList.add('active');
+        gsap.set(newPanel, { x: dir * cardW });
+
+        // Measure new panel height while it's already in DOM (just off-screen)
+        const endHeight = newPanel.scrollHeight;
+
+        // Start slide and height animation simultaneously
+        gsap.to(currentPanel, { x: -dir * cardW, duration: 0.42, ease: 'power2.inOut' });
+        gsap.to(newPanel, { x: 0, duration: 0.42, ease: 'power2.inOut',
+          onComplete: () => {
+            currentPanel.classList.remove('active');
+            [currentPanel, newPanel].forEach(p => {
+              p.style.position = '';
+              p.style.top = '';
+              p.style.left = '';
+              p.style.width = '';
+              p.style.boxSizing = '';
+              gsap.set(p, { x: 0, opacity: 1 });
+            });
+            gsap.set(card, { height: 'auto', overflow: 'visible', position: '' });
+          }
+        });
+
+        // Height animates at the same time as the slide
+        gsap.to(card, {
+          height: endHeight,
+          duration: 0.42,
+          ease: 'power2.inOut',
+          onUpdate: () => {
+            const drift = widget.getBoundingClientRect().top - widgetScreenTop;
+            if (Math.abs(drift) > 0.5) window.scrollTo({ top: window.scrollY + drift, behavior: 'instant' });
+          }
+        });
+      }, { passive: true });
+    })();
 
     // Pixel calico jiggle
     document.querySelector('.border-cat').addEventListener('click', () => {
